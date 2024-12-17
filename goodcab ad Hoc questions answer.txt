@@ -1,0 +1,268 @@
+
+SELECT * 
+FROM trips_db.dim_repeat_trip_distribution;
+
+-- Switch to the trips_db database
+USE trips_db;
+
+-- Switch to the targets_db database
+USE targets_db;
+
+-- Update the trip_count column in dim_repeat_trip_distribution table
+UPDATE dim_repeat_trip_distribution
+SET trip_count = CAST(REPLACE(trip_count, '-Trips', '') AS UNSIGNED);
+
+-- 1) City-Level Fare and Trip Summary Report
+
+SELECT 
+    dc.city_name,
+    COUNT(ft.trip_id) AS total_trips,
+    AVG(ft.fare_amount / NULLIF(ft.distance_travelled_km, 0)) AS avg_fare_per_km,
+    AVG(ft.fare_amount) AS avg_fare_per_trip,
+    ROUND(
+        (COUNT(ft.trip_id) * 100.0) / SUM(COUNT(ft.trip_id)) OVER(), 
+        2
+    ) AS percentage_contribution_to_total_trips
+FROM 
+    fact_trips ft
+JOIN 
+    dim_city dc 
+    ON ft.city_id = dc.city_id
+GROUP BY 
+    dc.city_name;
+
+
+-- 2) Monthly City-Level Trips Target Performance Report
+
+SELECT 
+    dc.city_name AS City_name,
+    MONTHNAME(mtt.month) AS month_name, -- Extract the full month name
+    COUNT(ft.trip_id) AS actual_trips,
+    mtt.total_target_trips AS target_trips,
+    CASE 
+        WHEN COUNT(ft.trip_id) > mtt.total_target_trips THEN 'Above Target'
+        ELSE 'Below Target'
+    END AS performance_status,
+    ROUND(
+        (COUNT(ft.trip_id) - mtt.total_target_trips) / NULLIF(mtt.total_target_trips, 0) * 100, 
+        2
+    ) AS percentage_difference
+FROM 
+    dim_city dc
+JOIN 
+    fact_trips ft ON dc.city_id = ft.city_id
+JOIN 
+    targets_db.monthly_target_trips mtt 
+    ON dc.city_id = mtt.city_id 
+    AND DATE_FORMAT(ft.date, '%Y-%m') = DATE_FORMAT(mtt.month, '%Y-%m') -- Match Year-Month
+GROUP BY 
+    dc.city_name, 
+    MONTHNAME(mtt.month), -- Include month name in GROUP BY
+    mtt.total_target_trips;
+
+
+-- 3) City-Level Repeat Passenger Trip Frequency Report
+
+SELECT 
+    dc.city_name AS City_name,
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 2 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "2-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 3 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "3-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 4 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "4-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 5 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "5-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 6 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "6-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 7 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "7-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 8 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "8-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 9 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "9-Trips",
+    CONCAT(
+        ROUND(
+            SUM(CASE WHEN drtd.trip_count = 10 THEN drtd.repeat_passenger_count ELSE 0 END) * 100.0 / NULLIF(SUM(drtd.repeat_passenger_count), 0), 
+            2
+        ), ' %'
+    ) AS "10-Trips"
+FROM 
+    trips_db.dim_repeat_trip_distribution drtd
+JOIN 
+    trips_db.dim_city dc ON drtd.city_id = dc.city_id
+GROUP BY 
+    dc.city_name
+ORDER BY 
+    dc.city_name;
+
+-- 4) Identify Cities with Highest and Lowest Total New Passengers
+
+WITH city_passenger_totals AS (
+    SELECT 
+        dc.city_name,
+        SUM(fps.new_passengers) AS total_new_passengers
+    FROM 
+        fact_passenger_summary fps
+    JOIN 
+        dim_city dc ON fps.city_id = dc.city_id
+    GROUP BY 
+        dc.city_name
+),
+ranked_cities AS (
+    SELECT 
+        city_name,
+        total_new_passengers,
+        ROW_NUMBER() OVER (ORDER BY total_new_passengers DESC) AS rank_desc,
+        ROW_NUMBER() OVER (ORDER BY total_new_passengers ASC) AS rank_asc
+    FROM 
+        city_passenger_totals
+)
+SELECT 
+    city_name,
+    total_new_passengers,
+    CASE 
+        WHEN rank_desc <= 3 THEN 'Top 3'
+        WHEN rank_asc <= 3 THEN 'Bottom 3'
+        ELSE NULL
+    END AS city_category
+FROM 
+    ranked_cities
+WHERE 
+    rank_desc <= 3 OR rank_asc <= 3;
+
+
+-- 5) Identify Month with Highest Revenue for Each City
+
+WITH MonthlyRevenue AS (
+    SELECT 
+        city_id,
+        YEAR(date) AS year,
+        MONTH(date) AS month,
+        SUM(fare_amount) AS monthly_revenue
+    FROM 
+        fact_trips
+    GROUP BY 
+        city_id, 
+        YEAR(date), 
+        MONTH(date)
+),           
+MaxMonthlyRevenue AS (
+    SELECT 
+        city_id,
+        year,
+        month,
+        monthly_revenue,
+        RANK() OVER (PARTITION BY city_id ORDER BY monthly_revenue DESC) AS revenue_rank
+    FROM 
+        MonthlyRevenue
+),
+TotalAndMaxRevenue AS (
+    SELECT
+        m.city_id,
+        m.year,
+        m.month,
+        m.monthly_revenue AS highest_monthly_revenue,
+        (SELECT SUM(monthly_revenue) 
+         FROM MonthlyRevenue 
+         WHERE city_id = m.city_id) AS total_revenue
+    FROM 
+        MaxMonthlyRevenue m
+    WHERE 
+        m.revenue_rank = 1
+)
+SELECT 
+    dc.city_name,
+    CONCAT(MONTHNAME(STR_TO_DATE(CONCAT(year, '-', month, '-01'), '%Y-%m-%d')), ' ', year) AS highest_revenue_month, -- Format to display month name and year
+    highest_monthly_revenue AS revenue,
+    ROUND((highest_monthly_revenue / total_revenue) * 100, 2) AS percentage_contribution
+FROM 
+    TotalAndMaxRevenue tmr
+JOIN 
+    dim_city dc ON tmr.city_id = dc.city_id
+ORDER BY 
+    dc.city_name;
+
+
+-- 6) Repeat Passenger Rate Analysis
+
+WITH monthly_data AS (
+    SELECT 
+        dc.city_name,
+        fps.month,
+        SUM(fps.total_passengers) AS total_passengers,
+        SUM(fps.repeat_passengers) AS repeat_passengers,
+        CASE 
+            WHEN SUM(fps.total_passengers) > 0 
+            THEN (SUM(fps.repeat_passengers) / SUM(fps.total_passengers)) * 100
+            ELSE 0
+        END AS monthly_repeat_passenger_rate
+    FROM 
+        fact_passenger_summary fps
+    JOIN 
+        dim_city dc ON fps.city_id = dc.city_id
+    GROUP BY 
+        dc.city_name, fps.month
+),
+citywide_data AS (
+    SELECT 
+        dc.city_name,
+        SUM(fps.total_passengers) AS city_total_passengers,
+        SUM(fps.repeat_passengers) AS city_repeat_passengers,
+        CASE 
+            WHEN SUM(fps.total_passengers) > 0 
+            THEN (SUM(fps.repeat_passengers) / SUM(fps.total_passengers)) * 100
+            ELSE 0
+        END AS city_repeat_passenger_rate
+    FROM 
+        fact_passenger_summary fps
+    JOIN 
+        dim_city dc ON fps.city_id = dc.city_id
+    GROUP BY 
+        dc.city_name
+)
+SELECT 
+    m.city_name,
+    m.month,
+    m.total_passengers,
+    m.repeat_passengers,
+    m.monthly_repeat_passenger_rate,
+    c.city_repeat_passenger_rate
+FROM 
+    monthly_data m
+JOIN 
+    citywide_data c ON m.city_name = c.city_name
+ORDER BY 
+    m.city_name, m.month;
