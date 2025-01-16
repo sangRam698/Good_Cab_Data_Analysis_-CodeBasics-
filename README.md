@@ -1,6 +1,7 @@
 # GoodCab Dashboard - Power BI
 
-## Project Overview - Goodcabs, a cab service focused on tier-2 cities, aims to achieve ambitious performance targets for 2024, including growth and improved passenger satisfaction. To meet these goals, the company needs to assess its performance across key metrics such as trip volume, passenger satisfaction, repeat passenger rate, and trip distribution.
+## Project Overview - 
+Goodcabs, a cab service operating in 10 tier-2 Indian cities, focuses on empowering local drivers and ensuring high passenger satisfaction. As the company aims for growth and improved service quality in 2024, it plans to evaluate key performance metrics, including trip volume, passenger satisfaction, repeat passenger rate, trip distribution, and the balance between new and repeat passengers. These insights will guide operational enhancements to achieve its goals.
 
 
 ## Key Features
