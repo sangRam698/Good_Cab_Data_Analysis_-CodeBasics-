@@ -1,3 +1,4 @@
+- + --------------------------- DATA CLEANING --------------------------- + --
 
 SELECT * 
 FROM trips_db.dim_repeat_trip_distribution;
@@ -12,6 +13,7 @@ USE targets_db;
 UPDATE dim_repeat_trip_distribution
 SET trip_count = CAST(REPLACE(trip_count, '-Trips', '') AS UNSIGNED);
 
+- + ---------------------------AdHOc Questions Answers(queries) --------------------------- + --
 -- 1) City-Level Fare and Trip Summary Report
 
 SELECT 
