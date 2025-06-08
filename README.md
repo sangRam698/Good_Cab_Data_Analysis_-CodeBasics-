@@ -21,5 +21,4 @@ Goodcabs, a cab service operating in 10 tier-2 Indian cities, focuses on empower
 - [Presentation PPT](https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/good%20cab%20final.pdf)
 
 ## View Interactive Dashboard
-<iframe title="transportation project 13 FINAL" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiODk0NjNjMGYtYTQ2Mi00M2ZlLWE3ZDEtMGQ0ZTYzN2JkZmQwIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9" frameborder="0" allowFullScreen="true"></iframe>
-
+https://app.powerbi.com/view?r=eyJrIjoiODk0NjNjMGYtYTQ2Mi00M2ZlLWE3ZDEtMGQ0ZTYzN2JkZmQwIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9
