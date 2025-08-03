@@ -1,3 +1,4 @@
+# <img src="https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/Screenshot%202025-08-03%20104718.png" width="4%" height="4%"> 
 # GoodCab Dashboard - Power BI
 
 ## Project Overview - 
