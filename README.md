@@ -1,25 +1,28 @@
-# <img src="https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/Screenshot%202025-08-03%20104718.png" width="4%" height="4%"> 
-# GoodCab Dashboard - Power BI
 
-## Project Overview - 
-Goodcabs, a cab service operating in 10 tier-2 Indian cities, focuses on empowering local drivers and ensuring high passenger satisfaction. As the company aims for growth and improved service quality in 2024, it plans to evaluate key performance metrics, including trip volume, passenger satisfaction, repeat passenger rate, trip distribution, and the balance between new and repeat passengers. These insights will guide operational enhancements to achieve its goals.
+# <img src="https://github.com/sangRam698/AtliQMart_Supply_Chain_Analysis/blob/main/Assets/Screenshot%202025-01-29%20090426.png" width="4%" height="4%"> AtliQ Mart: Supply Chain Analysis
+📌 Problem Statement  :
+AtliQ Mart is a growing FMCG manufacturer headquartered in Gujarat, India. It currently operates in three cities: Surat, Ahmedabad, and Vadodara. The company plans to expand to other metros and Tier 1 cities in the next two years.
 
+However, AtliQ Mart is facing a critical issue where some key customers did not extend their annual contracts due to service-related concerns. It is speculated that essential products were either not delivered on time or not delivered in full consistently, leading to poor customer experience.
 
-## Key Features
-✨ Highest Revenue: Jaipur leads with ₹37M! 🏆
-✨ New vs Repeat Passenger Ratio: Mysore ranks 1st at 7.91 🙌
-✨ Passenger Ratings:Jaypur ranks 1 and Vadodra ranks Last(bottom)
-🥇 Top Performer: Jaipur
-❗ Needs Improvement: Vadodara
-✨ Weekend Hotspots: Mysore emerges as the top destination! 🌆
+To address this issue, the management has tasked the supply chain analytics team with tracking the On-Time (OT) %, In-Full (IF) %, and On-Time In-Full (OTIF) % delivery service levels for all customers on a daily basis. This will allow them to respond swiftly and improve service levels before expanding into new markets.
 
-## Data Sources
-✅ Power BI Desktop & Service
-✅ MySQL
-✅ PowerPoint
+🎯 Task
+Imagine yourself as Peter Pandey, a newly joined data analyst in the supply chain team. Your role is to:
 
-## Presentation PPT
-- [Presentation PPT](https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/good%20cab%20final.pdf)
+✅ Build a Dashboard to track service levels
 
-## View Interactive Dashboard
-https://app.powerbi.com/view?r=eyJrIjoiODk0NjNjMGYtYTQ2Mi00M2ZlLWE3ZDEtMGQ0ZTYzN2JkZmQwIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9
+✅ Create Metrics based on the metric list provided.
+
+✅ Analyze & Derive Insights beyond the stakeholder requirements.
+
+You will be provided with:
+
+📌 Business knowledge & explanations
+
+📌 Metadata
+
+📌 Peter Pandey’s notes from the stakeholder meeting
+
+📌 Problem Files (Download above)
+
