@@ -1,5 +1,5 @@
 
-# <img src="https://github.com/sangRam698/AtliQMart_Supply_Chain_Analysis/blob/main/Assets/Screenshot%202025-01-29%20090426.png" width="4%" height="4%"> AtliQ Mart: Supply Chain Analysis
+# <img src="https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/asset/Screenshot%202025-08-03%20104718.png" width="4%" height="4%"> AtliQ Mart: Supply Chain Analysis
 📌 Problem Statement  :
 AtliQ Mart is a growing FMCG manufacturer headquartered in Gujarat, India. It currently operates in three cities: Surat, Ahmedabad, and Vadodara. The company plans to expand to other metros and Tier 1 cities in the next two years.
 
