@@ -1,28 +1,108 @@
+# 🚖 **Goodcabs_Data_Insights_And_Performance_Analysis**  
 
-# <img src="https://github.com/sangRam698/Good_Cab_Data_Analysis_-CodeBasics-/blob/main/asset/Screenshot%202025-08-03%20104718.png" width="4%" height="4%"> AtliQ Mart: Supply Chain Analysis
-📌 Problem Statement  :
-AtliQ Mart is a growing FMCG manufacturer headquartered in Gujarat, India. It currently operates in three cities: Surat, Ahmedabad, and Vadodara. The company plans to expand to other metros and Tier 1 cities in the next two years.
+Welcome to the **Goodcabs Data Insights and Performance Analysis** project repository! This project delivers actionable insights and recommendations to enhance the performance and revenue of **Goodcabs**, a cab service provider specializing in tier-2 cities across India.
 
-However, AtliQ Mart is facing a critical issue where some key customers did not extend their annual contracts due to service-related concerns. It is speculated that essential products were either not delivered on time or not delivered in full consistently, leading to poor customer experience.
+---
 
-To address this issue, the management has tasked the supply chain analytics team with tracking the On-Time (OT) %, In-Full (IF) %, and On-Time In-Full (OTIF) % delivery service levels for all customers on a daily basis. This will allow them to respond swiftly and improve service levels before expanding into new markets.
+## 📑 **Table of Contents**  
+- [🚀 Project Overview](#project-overview)  
+- [❓ Problem Statement](#problem-statement)  
+- [🏢 About Goodcabs](#about-goodcabs)  
+- [🛠️ Tools & Technologies](#tools--technologies)  
+- [📈 Dashboards](#dashboards)  
+- [📊 Key Insights](#key-insights)  
+- [📂 Repository Contents](#repository-contents)  
+- [📋 Steps Followed](#steps-followed)  
+- [💡 Recommendations](#recommendations)   
+- [📜 Live Dashboard](#live-dashboard)  
+- [📝 Contact](#contact)  
 
-🎯 Task
-Imagine yourself as Peter Pandey, a newly joined data analyst in the supply chain team. Your role is to:
+---
 
-✅ Build a Dashboard to track service levels
+## 🚀 **Project Overview**  
+The **Goodcabs Data Insights and Performance Analysis** project aims to provide actionable insights to the Chief of Operations at Goodcabs by analyzing key performance metrics and addressing critical business questions in the transportation and mobility domain.
 
-✅ Create Metrics based on the metric list provided.
+---
 
-✅ Analyze & Derive Insights beyond the stakeholder requirements.
+## ❓ **Problem Statement**  
+Goodcabs faced several challenges, including:  
+- Identifying top-performing cities and regions.  
+- Tracking and achieving key revenue targets.  
+- Understanding passenger behavior, especially repeat customers.  
+- Discovering opportunities for growth in underperforming cities.  
 
-You will be provided with:
+This project was designed to tackle these challenges and support data-driven decisions.
 
-📌 Business knowledge & explanations
+---
 
-📌 Metadata
+## 🏢 **About Goodcabs**  
+Goodcabs is a cab service provider specializing in tier-2 cities in India. The company focuses on delivering affordable and reliable transportation services while maintaining high customer satisfaction through efficient operations.
 
-📌 Peter Pandey’s notes from the stakeholder meeting
+---
 
-📌 Problem Files (Download above)
+## 🛠️ **Tools & Technologies**  
+- **Power BI**: Interactive dashboards and visualizations.  
+- **SQL**: Querying, aggregating, and transforming data.  
+- **Power Query**: Data preparation and transformation workflows.  
+- **Canva**: Creating visually appealing presentations.  
 
+---
+
+## 📈 **Dashboards**  
+### Key Dashboards Designed:  
+1. **City and Month Analysis**:  
+   - Compare performance metrics city-wise or month-wise dynamically.  
+2. **Repeat Passenger Analysis**:  
+   - Explore trends and factors influencing passenger retention.  
+3. **Actual vs Target Metrics**:  
+   - Compare actual performance against targets to identify gaps.  
+4. **Revenue Metrics**:  
+   - Insights into average fares and city contributions to overall revenue.  
+
+---
+
+## 📊 **Key Insights**  
+- **Top Cities**: Cities like Pune and Nashik dominate revenue generation.  
+- **Fare Efficiency**: Insights into average fare per kilometer and per trip.  
+- **Repeat Passenger Trends**: Identified cities with higher passenger retention rates.  
+- **Target Metrics**: Unveiled growth opportunities in underperforming cities.  
+
+---
+
+## 📂 **Repository Contents**  
+- `SQL-Scripts/`: SQL queries for data extraction and transformation.  
+- `PowerBI-Report/`: Power BI report file for visualizations (`Goodcabs_Report.pbix`).  
+- `Presentation/`: Business presentation with insights and recommendations.  
+- `Live-Dashboard/`: Link for the live dashboard.  
+
+---
+
+## 📋 **Steps Followed**  
+1. **Data Extraction**:  
+   - Retrieved data from sources such as `fact_trips` and `targets_db`.  
+2. **Data Cleaning**:  
+   - Ensured consistency, removed duplicates, and addressed missing values.  
+3. **Data Transformation**:  
+   - Aggregated metrics like average fares and contribution percentages.  
+4. **Data Loading**:  
+   - Imported clean datasets into Power BI for analysis.  
+5. **Visualization**:  
+   - Designed interactive dashboards for key business metrics.  
+6. **Insights & Recommendations**:  
+   - Delivered actionable insights for performance improvement.  
+
+---
+
+## 💡 **Recommendations**  
+1. **Focus on Top Cities**:  
+   - Enhance marketing and service quality in high-revenue cities.  
+2. **Loyalty Programs**:  
+   - Introduce rewards or discounts for repeat passengers.  
+3. **Expand to Tier-2 Cities**:  
+   - Invest in cities with untapped demand potential.  
+4. **Dynamic Pricing**:  
+   - Adjust fares during high-demand periods to boost revenue.  
+5. **Operational Efficiency**:  
+   - Optimize fleet routes using predictive analytics.  
+6. **Employee Incentives**:  
+   - Introduce rewards for achieving monthly targets.  
