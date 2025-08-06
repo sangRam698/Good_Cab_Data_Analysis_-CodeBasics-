@@ -105,4 +105,9 @@ Goodcabs is a cab service provider specializing in tier-2 cities in India. The c
 5. **Operational Efficiency**:  
    - Optimize fleet routes using predictive analytics.  
 6. **Employee Incentives**:  
-   - Introduce rewards for achieving monthly targets.  
+   - Introduce rewards for achieving monthly targets.
+---
+
+**Live Dashboard** - [Click here to view the dashboard](https://app.powerbi.com/view?r=eyJrIjoiODk0NjNjMGYtYTQ2Mi00M2ZlLWE3ZDEtMGQ0ZTYzN2JkZmQwIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9
+---
+
