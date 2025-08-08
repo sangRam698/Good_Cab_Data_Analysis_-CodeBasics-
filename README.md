@@ -44,7 +44,7 @@ Goodcabs is a cab service provider specializing in tier-2 cities in India. The c
 - **Power BI**: Interactive dashboards and visualizations.  
 - **SQL**: Querying, aggregating, and transforming data.  
 - **Power Query**: Data preparation and transformation workflows.  
-- **Canva**: Creating visually appealing presentations.  
+- **Power Point**: Creating visually appealing presentations.  
 
 ---
 
@@ -70,9 +70,8 @@ Goodcabs is a cab service provider specializing in tier-2 cities in India. The c
 ---
 
 ## 📂 **Repository Contents**  
-- `SQL-Scripts/`: SQL queries for data extraction and transformation.  
-- `PowerBI-Report/`: Power BI report file for visualizations (`Goodcabs_Report.pbix`).  
-- `Presentation/`: Business presentation with insights and recommendations.  
+- `goodcab.ad Hoc questions answer.text/`: SQL queries for data extraction and transformation.    
+- `good cab final.pdf/`: Business presentation with insights and recommendations.  
 - `Live-Dashboard/`: Link for the live dashboard.  
 
 ---
@@ -108,6 +107,7 @@ Goodcabs is a cab service provider specializing in tier-2 cities in India. The c
    - Introduce rewards for achieving monthly targets.
 ---
 
-**Live Dashboard** - [Click here to view the dashboard](https://app.powerbi.com/view?r=eyJrIjoiODk0NjNjMGYtYTQ2Mi00M2ZlLWE3ZDEtMGQ0ZTYzN2JkZmQwIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9
+## Live Dashboard
+- 🔗 [View Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNWRkMTgwNjYtNDU1OS00OWE4LTk3M2YtYTIzODE4NzZjOGVjIiwidCI6IjVjMGNmMWQwLTZhNjItNGY4Ny1iYWI2LWEwZGE1MmYwZTNmZiJ9)
 ---
 
